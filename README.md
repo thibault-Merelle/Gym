@@ -6,9 +6,6 @@ this project is part of our course at simplon school
 
 ### Goals:
 
-We going to use mongoDB and a api with node js using docker.
-
-## Build with :
 
 For this project you will therefore build a complete website allowing you to create, discover and share memes (animated or not).
 
@@ -21,8 +18,12 @@ The site will be open and the memes will be public, but to create a new one, the
 
 To create a meme, the user has 2 choices:
 
-    - upload a meme already ready that he will have done himself on his computer
-    - (BONUS) create it via your site. You can offer a memes creation page (example: https://giphy.com/create/gifmaker)
+  - upload a meme already ready that he will have done himself on his computer
+  - (BONUS) create it via your site. You can offer a memes creation page (example: https://giphy.com/create/gifmaker)
+
+
+## Build with :
+
 
 
 ## Contributors
