@@ -6,3 +6,5 @@ router.get("/", memeController.readMeme);
 router.delete("/:id", memeController.deleteMeme);
 router.get("/:categorie", memeController.categorieMeme);
 router.get("/:search", memeController.searchMeme);
+
+module.exports = router;
