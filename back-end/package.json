@@ -1,0 +1,32 @@
+{
+  "name": "Gym",
+  "version": "1.0.0",
+  "description": "![Incubateur Simplon.co : présentation, liste startups, interview](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSEcKwborrMn9-Q2kmVlfAFLlq3M5DjW5Hlw&usqp=CAU)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thibault-Merelle/Gym.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thibault-Merelle/Gym/issues"
+  },
+  "homepage": "https://github.com/thibault-Merelle/Gym#readme",
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
