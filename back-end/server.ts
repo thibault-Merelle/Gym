@@ -3,7 +3,6 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const { checkUser, requireAuth } = require("./middleware/auth.middleware");
 const userRoutes = require("./routes/user.routes");
 const memeRoutes = require("./routes/meme.routes");
 require("dotenv").config({ path: "./config/.env" });
