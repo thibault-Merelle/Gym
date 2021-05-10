@@ -5,6 +5,13 @@ terraform {
       version = "=2.46.0"
     }
   }
+    backend "remote" {
+-   organization = "REPLACE_ME"
++   organization = "simplon"
+
+    workspaces {
+      name = "github-actions-demo"
+    }
 }
 
 
