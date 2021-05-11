@@ -2,7 +2,8 @@
 import jwt from "jsonwebtoken"
 const maxAge = 3 * 24 * 60 * 60 * 1000; // la variable qui permet de faire expirer une session
 import {MongoClient, ObjectID} from "mongodb";
-const url = process.env.URL_MONGO;
+const url =
+  "mongodb://gymtestmongo:cPOnJAfPYNZqhO10UqZzAS4fZapkAnAk3PugWbs2iRBnp6yZf498eRoEkQPS7amuAO11DABq1E80KCuHZcgNIQ==@gymtestmongo.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@gymtestmongo@";
 import bcrypt from "bcrypt"
 const saltRounds = 10;
 
