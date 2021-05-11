@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 
 // jwt 
-app.get('*', checkUser); // l'etoile nous permet de selectionner toutes les routes et ainsi de faire la verification sur chaque route
+// app.get('*', checkUser); // l'etoile nous permet de selectionner toutes les routes et ainsi de faire la verification sur chaque route
 app.get('/jwtid', requireAuth)
 
 // routes

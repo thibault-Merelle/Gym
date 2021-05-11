@@ -48,28 +48,29 @@ module.exports.searchMeme = async (req, res) => {};
 
 module.exports.addForm = async (req, res) => {
   const {name, category, urlMeme} = req.body
-  const token = req.cookies.jwt;
+  const extension = urlMeme.split("\\")
+  // const token = req.cookies.jwt;
   let idLogin = ""
 
-  jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
-    if (err) {
-      console.log(err);
-    } else {
-      idLogin = decodedToken.id
-      console.log(decodedToken.id);
-      res.send("ok");
-    }
-  });
+  // jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     idLogin = decodedToken.id
+  //     console.log(decodedToken.id);
+  //     res.send("ok");
+  //   }
+  // });
 
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     var dbo = db.db("mydb");
     var myobj = [
       {
-        idLogin : idLogin,
+        // idLogin : idLogin,
         name: name,
-        category : category,
-        url: urlMeme,
+        category : category.value,
+        url: `https://gymteststorageaccount.blob.core.windows.net/meme-storage/${extension[2]}` ,
       },
     ];
     dbo.collection("test").insertMany(myobj, function (err, result) {
