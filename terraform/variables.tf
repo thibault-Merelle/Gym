@@ -33,6 +33,18 @@ variable "containers_names" {
   default     = ["inputs", "outputs"]
 }
 
+#vars blob storage backend
+# variable "storage_account_name_backend" {
+#   type        = string
+#   description = "gymblobstoragebackend"
+# }
+
+# variable "container_name_backend" {
+#   type        = string
+#   description = "terraformci"  
+# }
+
+
 # vars declaration app service
 
 variable "app_service_plan_name" {

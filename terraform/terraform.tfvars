@@ -4,8 +4,13 @@ location               = "East US"
 public_ip_name         = "GymPublicBackIp"
 virtual_network_name   = "VnetGym"
 
+
 #vars blob storage
-storage_account_name   = "gymblobstorage"
+storage_account_name         = "gymblobstorage"
+
+#vars blob storage backend
+#storage_account_name_backend = "gymblobstoragebackend"
+#container_name_backend       = "terraformci"
 
 #vars app service plan
 app_service_plan_name = "gym_appserviceplan"
