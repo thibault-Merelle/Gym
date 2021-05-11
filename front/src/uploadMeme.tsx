@@ -7,24 +7,83 @@ import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
 import Select from "react-select";
 
 const uploadMeme = {
-  Upload: function () {
-    
+  UploadData : function () {
+    const data = [
+      { value: "Category" },
+      { value: "Sport" },
+      { value: "Musique" },
+      { value: "Comédie" },
+      { value: "Cinema" },
+    ];
+    const [showResults, setShowResults] = useState(false);
+    const onClick2 = () => setShowResults(true);
+    const [category, setCategory] = useState(data[0]);
+    const [name, setName] = useState<any | null>(null);
+    const [urlMeme, setUrlMeme] = useState<any | null>(null);
+    const onchangeSelect = (item) => {
+      setCategory(item.value);
+    };
+
     return (
-      <div className="App">
+
+    <div className="upload">
+      <div className="pics">
         <div className="entete">
           <FontAwesomeIcon icon={faDumbbell} className="muscul" />
           <h1>GYM UPLOAD</h1>
           <FontAwesomeIcon icon={faDumbbell} className="muscul" />
         </div>
-
         <div className="img-mario">
           <img src={imgMario} alt="image mario" />
         </div>
-        <div className="form2">
-          <label htmlFor="">Name</label>
-          <input type="text" name="name" />
+      </div>
 
-        </div>
+      <div className="form-data">
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <Select
+          value={category}
+          onChange={onchangeSelect}
+          options={data}
+          getOptionValue={(option) => option.value}
+          getOptionLabel={(option) => option.value}
+          className="s1"
+          placeholder="Category"
+        />
+        <input
+          type="file"
+          name="urlMeme"
+          id="urlMeme"
+          value={urlMeme}
+          onChange={(e) => setUrlMeme(e.target.value)}
+          className="upfile"
+        />
+
+        <button
+        className="confirm"
+          onClick={async () => {
+            setShowResults(true);
+            const res = await axios({
+              method: `POST`,
+              url: `http://localhost:5000/api/meme/form`,
+              data: {
+                name,
+                category,
+                urlMeme,
+              },
+            });
+          }}
+        >Confirmer</button>
+      </div>
+      {
+        showResults ?  <div className="form-file">
         <div className="form">
           <form
             method="POST"
@@ -37,49 +96,9 @@ const uploadMeme = {
             </button>
           </form>
         </div>
-      </div>
-    );
-  },
-  UploadData : function () {
-    const options = [
-      { value: "Sport" },
-      { value: "Musique" },
-      { value: "Comédie" },
-      { value: "Cinema" }
-    ];
-
-    const [category, setCategory] = useState();
-    const [name, setName] = useState();
-    const [urlMeme, setUrlMeme] = useState();
-    const onchangeSelect = (item) => {
-      setCategory(item.value);
-    };
-
-    return (
-      <div className="form2">
-        <label htmlFor="">Name</label>
-        <input type="text" name="name" />
-        
-        <Select
-          value={category}
-          onChange={onchangeSelect}
-          options={options}
-          getOptionValue={(option) => option.value}
-          getOptionLabel={(option) => option.value}
-        />
-
-        <label htmlFor="">url du meme</label>
-        <input type="text" name="urlMeme" />
-
-         <button
-          onClick={async () => {
-            const res = await axios(
-              // `http://localhost:4000/Localisation/${search}`
-              `https://yomathiapp.azurewebsites.net/Localisation/${search}`
-            );
-            setResult(res.data);
-          }}
-        ></button>
+      </div> : null
+      }
+     
       </div>
     );
   }

@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      <uploadMeme.Upload />
+      <uploadMeme.UploadData />
     </div>
   );
 }
