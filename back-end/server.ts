@@ -34,7 +34,6 @@ app.get('/jwtid', requireAuth)
 app.use("/api/user", userRoutes);
 app.use("/api/meme", memeRoutes);
 
-
 // server
 app.listen(process.env.PORT, () => {
   console.log(`Listenning on port ${process.env.PORT}`);
