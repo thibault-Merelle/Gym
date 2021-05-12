@@ -12,11 +12,14 @@ const uploadMeme = {
       { value: "Category" },
       { value: "Sport" },
       { value: "Musique" },
-      { value: "Comédie" },
       { value: "Cinema" },
+      { value: "Gaming" },
+      { value: "Animals" },
+      { value: "Reaction" },
+      { value: "Anime" },
+      { value: "Food" },
     ];
     const [showResults, setShowResults] = useState(false);
-    const onClick2 = () => setShowResults(true);
     const [category, setCategory] = useState(data[0]);
     const [name, setName] = useState<any | null>(null);
     const [urlMeme, setUrlMeme] = useState<any | null>(null);
@@ -55,7 +58,6 @@ const uploadMeme = {
           getOptionValue={(option) => option.value}
           getOptionLabel={(option) => option.value}
           className="s1"
-          placeholder="Category"
         />
         <input
           type="file"
@@ -75,7 +77,7 @@ const uploadMeme = {
               url: `http://localhost:5000/api/meme/form`,
               data: {
                 name,
-                category,
+                category: category,
                 urlMeme,
               },
             });
