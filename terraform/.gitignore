@@ -11,7 +11,7 @@ data.tf
 # Directories
 .terraform/
 .vagrant/
-
+tests/
 # SSH Keys
 *.pem
 
