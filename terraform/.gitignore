@@ -11,13 +11,13 @@ data.tf
 # Directories
 .terraform/
 .vagrant/
-
+tests/
 # SSH Keys
 *.pem
 
 # Backup files
 *.bak
-
+.terraform.lock.hcl
 # Ignored Terraform files
 *gitignore*.tf
 

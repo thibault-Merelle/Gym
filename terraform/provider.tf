@@ -17,7 +17,5 @@ terraform {
     storage_account_name = "gymblobstoragebackend"
     container_name       = "terraformci"
     key                  = "terraform.tfstate"
-    
-    access_key           = "TyEEmEeTHeS9nEZrZYBir5pbf4OQg08lpSVUf8MAn8y63wphhXl3WDLc0i0+PMDlUxcWz77wiojJNdghnnSMtQ=="
   }
 }
