@@ -65,6 +65,7 @@ resource "azurerm_storage_account" "GymBlob" {
   location                 = data.azurerm_resource_group.GymResourceGroup.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
+  allow_blob_public_access = true
 
   tags = {
     environment = "devlopment"
@@ -82,6 +83,51 @@ resource "azurerm_storage_container" "memestorage" {
   container_access_type = "private"
 }
 
+resource "azurerm_storage_blob" "myblob" {
+  name                   = "myblob.txt"
+  storage_account_name   = azurerm_storage_account.GymBlob.name
+  storage_container_name = azurerm_storage_container.memestorage.name
+  type                   = "Block"
+  source                 = "myblob.txt"
+}
+
+#--------------------------------#
+#        Shared access Secrets   #
+#--------------------------------#
+
+
+
+data "azurerm_storage_account_sas" "sas" {
+    connection_string = azurerm_storage_account.GymBlob.primary_connection_string
+    https_only = true
+    start = "2021-05-04"
+    expiry = "2021-12-31"
+    resource_types {
+        object = true
+        container = false
+        service = false
+    }
+    services {
+        blob = true
+        queue = false
+        table = false
+        file = false
+    }
+    permissions {
+        read = true
+        write = false
+        delete = false
+        list = false
+        add = false
+        create = false
+        update = false
+        process = false
+    }
+}
+
+
+
+
 
 #--------------------------------#
 #         azure web app API      #
@@ -92,7 +138,7 @@ resource "azurerm_app_service_plan" "gym_appserviceplan" {
   location            = data.azurerm_resource_group.GymResourceGroup.location
   resource_group_name = data.azurerm_resource_group.GymResourceGroup.name
   kind                = "Linux"
-  reserved            = true
+  reserved            = false
 
   sku {
     tier = "Standard"
