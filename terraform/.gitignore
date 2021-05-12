@@ -17,7 +17,7 @@ tests/
 
 # Backup files
 *.bak
-
+.terraform.lock.hcl
 # Ignored Terraform files
 *gitignore*.tf
 
