@@ -6,6 +6,8 @@
 # logs
 *.log
 
+#file to ignore
+data.tf
 # Directories
 .terraform/
 .vagrant/
