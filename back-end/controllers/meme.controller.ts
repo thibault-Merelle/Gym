@@ -67,7 +67,7 @@ module.exports.searchMeme = async (req, res) => {
           res.send(result);
         }
         else{
-          res.send("Aucun resultat pour cette recherche")
+          res.send("Aucun resultat pour cette recherche reessayez")
         }
         
         console.log(result);
